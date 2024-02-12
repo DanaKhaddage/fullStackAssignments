@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-2</title>
+</head>
+<body>
+    <div style="background-color: rgb(248, 247, 247);height: 20px;border: 1px solid rgb(188, 188, 188);padding: 10px;display: flex;">
+        <label for="record" style="padding-left: 10px;color:rgb(46, 100, 158);">Record
+            <select id="review" name="review"  style="border-color: rgb(248, 247, 247);background-color: rgb(248, 247, 247);">
+                <option value=""></option>
+            </select>
+        </label>
+        <label for="view" style="padding-left: 980px;color:rgb(46, 100, 158);">View:
+            <select id="view" name="view" style="width: 116px;font-weight: bold;">
+                <option>Review Orders</option>
+            </select>
+        </label>
+    </div>
+    <div style="display: flex;border-bottom:1px solid rgb(188, 188, 188);">
+        <p style="color: rgb(47, 103, 163);display: flex;margin-left: 10px; font-size: 20px;margin-top: 5px;">&#8593;     &#8595;</p>
+        <p style="color: rgb(154, 152, 152);font-size: 12px;margin-left: 2px;">* - indicates a required field</p>
+        <input type="button" id="ok" value="OK" style="margin-left: 800px;width: 80px;height:20px;margin-top: 10px;padding: 1px;">
+        <input type="button" id="delete" value="Delete" style="margin-left: 10px;width: 80px;height:20px;margin-top: 10px;padding: 1px;">
+        <input type="button" id="cancel" value="Cancel" style="margin-left: 10px;width: 80px;height:20px;margin-top: 10px;padding: 1px;">
+    </div>
+    <br><br>
+    <div style="display: flex; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center;">
+            <label for="customer" style="font-weight: bold;margin-left: 40px;">Customer:</label>
+            <input id="customer" name="customer" value="Bonn app'" style="color: rgb(94, 163, 237);margin-left: 50px;width: 100px;">
+        </div>
+        <div style="display: flex; align-items: center;">
+            <label for="address" style="font-weight: bold;margin-left: 560px;">Address:</label>
+            <input id="address" name="address" value="12, rue des Bouchers" style="color:black;margin-left: 35px;width: 300px;text-align: end;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 20px;">
+            <label for="employee" style="font-weight: bold;margin-left: 40px;">Employee:</label>
+            <input id="employee" name="employee" value="Peacock" style="color:rgb(94, 163, 237);margin-left: 50px;width: 100px;">
+        </div>
+        <div style="display: flex; align-items: center;">
+            <label for="city" style="font-weight: bold;margin-left: 560px;margin-top: 20px;">City:</label>
+            <input id="city" name="city" value="Marseille" style="color:black;margin-left: 62px;width: 300px;margin-top: 20px;text-align: end;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 20px;">
+            <label for="order-date" style="font-weight: bold;margin-left: 40px;">Order Date:</label>
+            <input type="date" id="order-date" name="order-date" value="1998-05-06" style="color:black;margin-left: 36px;width: 130px;">
+        </div>
+        <div style="display: flex;">
+            <label for="region" style="font-weight: bold;margin-left: 535px;margin-top: 20px;">Region:</label>
+            <input type="text" id="region" name="region" style="color:black;margin-left: 44px;width: 300px;margin-top: 20px;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 20px;">
+            <label for="required-date" style="font-weight: bold;margin-left: 40px;">Required<br> Date:</label>
+            <input type="date" id="required" name="required" value="1998-06-03" style="color:black;margin-left: 56px;width: 130px;">
+        </div>
+        <div style="display: flex;">
+            <label for="postal-code" style="font-weight: bold;margin-left: 533px;margin-top: 20px;">Postal Code:</label>
+            <input type="text" value="13008" id="postal-code" name="postal-code" style="color:black;margin-left: 15px;width: 298px;margin-top: 20px;height: max-content;text-align: end;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 20px;">
+            <label for="shipped-date" style="font-weight: bold;margin-left: 40px;">Shipped Date:</label>
+            <input type="date" id="shipped-date" name="shipped-date" style="color:black;margin-left: 23px;width: 130px;">
+        </div>
+        <div style="display: flex;">
+            <label for="ship-country" style="font-weight: bold;margin-left: 530px;margin-top: 10px;">Ship Country:</label>
+            <input id="ship-country" name="ship-country" value="France" style="color:black;margin-left: 8px;width: 298px;margin-top: 10px;height: max-content;text-align: end;">
+        </div>
+    </div>
+    <br><br>
+    <div style="border: 1px solid rgb(188, 188, 188);margin:4px 30px 4px 30px;">
+        <div style="border: 1px solid rgb(188, 188, 188);margin: 10px;background-color: rgb(248, 247, 247);display: flex;">
+            <input type="search" value="cha" style="margin: 15px;margin-left: 30px;height: max-content;display: flex;">
+            <p style="color: rgb(47, 103, 163);margin-left: 60px;">New Order Details</p>
+            <label for="actions" style="padding-left: 10px;color:rgb(46, 100, 158);margin-top: 16px;margin-left: 80px;">Actions
+                <select id="actions" name="actions" style="border-color: rgb(248, 247, 247);background-color: rgb(248, 247, 247);">
+                    <option value=""></option>
+                </select>
+            </label>
+        </div>
+        <div style="margin-left: 20px;">
+            <table style="border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td style="color: rgb(47, 103, 163);">Product Name</td>
+                    <td style="padding-left: 130px;color: rgb(47, 103, 163);">Unit Price</td>
+                    <td style="padding-left: 60px;color: rgb(47, 103, 163);">Quantity</td>
+                    <td style="padding-left: 75px;color: rgb(47, 103, 163);">Discount</td>
+                    <td style="padding-left: 90px;color: rgb(47, 103, 163);">Product<br>Category<br>Name</td>
+                    <td style="padding-left: 90px;color: rgb(47, 103, 163);">Product Supplier<br>Company Name</td>
+                    <td style="padding-left: 90px;color: rgb(47, 103, 163);">Extended Price</td>
+                </tr>
+                <tr>
+                    <td style="color: rgb(94, 163, 237);">Grandma's<br>Boysenberry Spread</td>
+                    <td style="padding-left: 130px;">$25.00</td>
+                    <td style="padding-left: 60px;">20</td>
+                    <td style="padding-left: 75px;">25.00 %</td>
+                    <td style="padding-left: 90px;">Condiments</td>
+                    <td style="padding-left: 90px;">Grandma Kelly's<br>Homestead</td>
+                    <td style="padding-left: 90px;">$375.00</td>
+                </tr>
+                <tr>
+                    <td style="color: rgb(94, 163, 237);">Tofu</td>
+                    <td style="padding-left: 130px;">$23.25</td>
+                    <td style="padding-left: 60px;">20</td>
+                    <td style="padding-left: 75px;">25.00 %</td>
+                    <td style="padding-left: 90px;">Produce</td>
+                    <td style="padding-left: 90px;">Mayumi's</td>
+                    <td style="padding-left: 90px;">$348.75</td>
+                </tr>
+                <tr>
+                    <td style="color: rgb(94, 163, 237);">Teatime Chocolate<br>Biscuits</td>
+                    <td style="padding-left: 130px;">$9.20</td>
+                    <td style="padding-left: 60px;">10</td>
+                    <td style="padding-left: 75px;">25.00 %</td>
+                    <td style="padding-left: 90px;">Confections</td>
+                    <td style="padding-left: 90px;">Specialty Biscuits,<br>Ltd.</td>
+                    <td style="padding-left: 90px;">$69.00</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div style="border-top: 1px dashed rgb(188, 188, 188);margin:10px 15px 10px 15px;">
+            <pre style="margin-left: 270px;">Avg: $19.15      Sum: 50      Avg: 25.00 %                                                                   Sum: $792.75</pre>
+        </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap;border-bottom: 3px solid rgb(188, 188, 188);margin: 10px 12px 10px 12px;">
+        <div style="display: flex; align-items: center;margin-top: 30px;">
+            <label for="ship-name" style="font-weight: bold;margin-left: 40px;">Ship Name:</label>
+            <input id="ship-name" name="ship-name" value="Bonn app'" style="color: black;margin-left: 50px;width: 300px;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 1px;">
+            <label for="subtotal" style="font-weight: bold;margin-left: 510px;">Subtotal:</label>
+            <input id="subtotal" name="subtotal" value="$792.75" style="color:black;margin-left: 25px;width: 100px;border: transparent;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 20px;">
+            <label for="ship-via" style="font-weight: bold;margin-left: 40px;">Ship Via:</label>
+            <select id="ship-via" name="ship-via" style="width: 120px;margin-left: 65px;">
+                <option>United Package</option>
+            </select>
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 1px;">
+            <label for="freight" style="font-weight: bold;margin-left: 700px;margin-bottom: 4px;">Freight:</label>
+            <input id="freight" name="freight" value="$38.28" style="color:black;margin-left: 32px;width: 100px;">
+        </div>
+        <div style="display: flex; align-items: center;margin-top: 1px;">
+            <label for="total" style="font-weight: bold;margin-left: 990px;margin-bottom: 10px;">Total:</label>
+            <input id="total" name="subtotal" value="$831.03" style="color:black;margin-left: 45px;width: 100px;border: transparent;margin-bottom: 10px;">
+        </div>
+    </div>
+    <div style="display: flex;">
+        <p style="color: rgb(47, 103, 163);display: flex;margin-left: 10px; font-size: 20px;margin-top: 5px;">&#8593;     &#8595;</p>
+        <p style="color: rgb(154, 152, 152);font-size: 12px;margin-left: 2px;">* - indicates a required field</p>
+        <input type="button" id="ok" value="OK" style="margin-left: 800px;width: 80px;height:20px;margin-top: 10px;padding: 1px;">
+        <input type="button" id="delete" value="Delete" style="margin-left: 10px;width: 80px;height:20px;margin-top: 10px;padding: 1px;">
+        <input type="button" id="cancel" value="Cancel" style="margin-left: 10px;width: 80px;height:20px;margin-top: 10px;padding: 1px;">
+    </div>
+</body>
+</html>

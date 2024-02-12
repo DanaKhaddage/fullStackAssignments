@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(244, 244, 216);
+}
+
+h1, h3 {
+    font-family: 'Arial';
+}
+
+h6 {
+    font-family: 'Arial';
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px dotted black;
+}
+
+input[type="text"] {
+    width: 80px;
+    margin: 5px;
+    border-radius: 0;
+    border-width: 1px;
+    color: blueviolet;
+}
+
+.first-column {
+    width: 100px;
+    color: blueviolet;
+}
+
+.third-column {
+    width: 300px;
+    color: red;
+}
+
+button {
+    color: blueviolet;
+    width: 195px;
+    border-radius: 0;
+    border-width: 1px;
+}
+
+p{
+    font-family: Arial;
+}

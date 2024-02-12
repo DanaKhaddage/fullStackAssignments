@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_assignment</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="fname">First name</label><br>
+            <input type="text" id="fname" name="fname" placeholder="Enter your fname">
+            <br><br>
+            <label for="lname">Last name</label><br>
+            <input type="text" if="lname" name="lname" placeholder="Enter your lname">
+            <br><br>
+            <p>Select your gender</p>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label><br>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+            <br><br>
+            <label for="email">Enter your email</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter you email">
+            <br><br>
+            <label for="password">Enter your password</label><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <br><br>
+            <label for="password">Confirm your password</label><br>
+            <input type="password" id="password" name="password" placeholder="Confirm your password">
+            <br><br>
+            <label for="bday">Birth-date</label><br>
+            <input type="date" id="bday" name="bday">
+            <br><br>
+            <label for="bdate-time">Birth date and time</label><br>
+            <input type="datetime-local" id="bdate-time" name="bdate-time">
+            
+            
+
+
+
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Other Information</legend>
+            <p>Choose your favorite car(s)</p>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="BMW">
+            <label for="vehicle1">BMW</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Volvo">
+            <label for="vehicle2">Volvo</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Gclass">
+            <label for="vehicle1">Gclass</label><br>
+            <p>Choose your favorite color(s)</p>
+            <select name="colors" id="colors" size="4" multiple>
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="pink">Pink</option>
+                <option value="white">White</option>
+            </select><br><br>
+            <label for="shade">Choose your favorite color shade</label><br>
+            <input type="color" id="shade" name="shade"><br><br>
+            <label for="platform">Choose your favorite social media platform</label><br>
+            <input list="platforms" id="platform" name="platform">
+            <datalist id="platforms">
+                <option value="Whatsapp"></option>
+                <option value="Instagram"></option>
+                <option value="Facebook"></option>
+                <option value="Twitter"></option>
+            </datalist>
+            <br><br>
+            <label for="month">Select the month you joined TECHlarious</label><br>
+            <input type="month" id="month" name="month">
+            <br><br>
+            <label for="week">Select the week you joined TEClarious</label><br>
+            <input type="week" id="week" name="week">
+            <br><br>
+            <label for="time">When did you join?</label><br>
+            <input type="time" id="time" name="time">
+            <br><br>
+            <label for="file">Select a file</label><br>
+            <input type="file" id="file" name="file">
+            <br><br>
+            <p>Tell us more about yourself</p>
+            <textarea name="message" id="message"  rows="15" cols="35"></textarea>
+        </fieldset>
+        <br><br>
+        <input type="image" id="img" name="img" src="https://static.vecteezy.com/system/resources/previews/000/418/269/original/hand-drawn-vintage-vector-text-thank-you-on-white-background-calligraphy-lettering-illustration-eps10.jpg" style="width:400px;height:200px">
+        <br><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

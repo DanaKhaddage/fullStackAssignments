@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment_1</title>
+    <style>
+        .name {
+            background-color: gray;
+            border: 3px solid black;
+            color: white;
+            height: 100px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile {
+            display: flex;
+            margin-left: 380px; 
+        }
+        .picture {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid black;
+        }
+        .picture img {
+            max-width: 100%; 
+            max-height: 100%; 
+            border-radius: 50%;
+        }
+        .biography {
+            background-color: rgb(206, 206, 206);
+            border: 2px solid black;
+            width:300px;
+            height: 100px;
+            color: black;
+            margin-left: 190px; 
+            font-size: 9px;
+        }
+        .work_experience{
+            background-color: rgb(125, 182, 125);
+            border:2px solid black;
+            width: 1100px;;
+            height:200px;
+            color:black;
+            margin-left: 70px;
+        }
+        .project_showcase{
+            background-color: rgb(107, 107, 224);
+            border:2px solid black;
+            width: 1100px;;
+            height:300px;
+            color:black;
+            margin-left:70px;
+        }
+        .skills_chart{
+            background-color: rgb(239, 239, 70);
+            border:2px solid black;
+            width: 1100px;;
+            height:200px;
+            color:black;
+            margin-left: 70px;
+        }
+        .contact_form{
+            background-color: pink;
+            border:2px solid black;
+            width: 1100px;;
+            height:550px;
+            color:black;
+            margin-left:70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="name">                                      
+        <h3><pre>Dana Khaddage                                Web Developer</pre></h3>
+    </div>
+    <br>
+    <div class="profile">
+        <div class="picture">
+        <img src="https://mmcland.com/wp-content/uploads/2020/01/Profile-Picture-4.png" alt="profile picture" style="width:100px;height:100px">
+        </div>
+        <div class="biography">
+            <p>I'm a passionate and dedicated web developer driven by a relentless curiosity for crafting innovative digital experiences. 
+                I thrive on the challenges of modern web technologies.
+                My journey has been fueled by an unwavering dedication to creating clean, functional, and user-centric websites that resonate with audiences.
+                Outside the lines of code,
+                I'm an avid advocate for continuous learning.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="work_experience">
+        <h2>Work Experience</h2>
+        <ol>
+            <li>
+                <strong>Intern-Signal Processing</strong><br>
+                <em>(August 2023-October 2023)</em><br>
+                <ul>
+                    <li>Applied signal processing for ECG analysis.</li>
+                    <li>Developed skills in visualizing and presenting ECG analysis results.</li>
+                    <li>Learnt to generate synthetic ECG signals with different characteristics.</li>
+                    <li>Understood ECG basics and clinical significance.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    <br>
+    <div class="project_showcase">
+        <h2>Project Showcase</h2>
+        <ol>
+            <li>
+                <strong>Approximation detector using Ultrasound sensor and 555 Timer</strong><br>
+                <br><img src="project.jpeg" alt="Approximation detector" style="width:300px;height:150px">
+                <br><p>This project aims to detect a sound and determine when the LED turns on depending on how far the object is placed away from the ultrasound.</p>
+            </li>    
+        </ol>
+    </div>
+    <br>
+    <div class="skills_chart">
+        <h2>Skills Chart</h2>
+        <ul>
+            <li>
+                <strong>CSS/JavaScript/VHDL/CSE</strong>
+                <span>Proficiency: Beginner</span>
+            </li>
+            <li>
+                <strong>HTML/C/Java/C#/OOP/Structured C/Data Structures</strong>
+                <span>Proficiency: Intermediate</span>
+            </li>
+            <li>
+                <strong>Networking:WAN/LAN</strong>
+                <span>Proficiency: Intermediate</span>
+            </li>
+            <li>
+                <strong>Relational Database: SQL Server</strong>
+                <span>Proficiency: Intermediate</span>
+            </li>
+            <li>
+                <strong>Software: MATLAB/Visual Studio/Sharp Develop/</strong>
+                <span>Proficiency: Intermediate</span>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="contact_form">
+        <h2>Contact Form</h2>
+        <form>
+            <label for="name"><strong>Name:</strong></label>
+            <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+            <label for="email"><strong>Email:</strong></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+            <label><strong>Gender:</strong></label><br>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label><br>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label><br>
+            <input type="radio" id="neither" name="gender">
+            <label for="neither">Rather not to say</label><br><br>
+            <label for="learn"><strong>How did you learn about me?</strong></label>
+            <input list="learnt" id="learn" name="learn">
+            <datalist id="learnt">
+                <option value="LinkedIn"></option>
+                <option value="Friend"></option>
+                <option value="Search Engine"></option>
+            </datalist><br><br>
+            <label for="mess">Leave a message</label><br>
+            <textarea name="mess" id="mess" rows="12" cols="32"></textarea><br><br>
+            <input type="submit" value="Send">
+        </form>
+
+    
+    </div>
+
+</body>
+</html>

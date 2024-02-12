@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(to bottom,rgb(156, 127, 190) 0%,rgb(156, 127, 190) 30vh,rgb(230, 221, 240) 10vh,rgb(230, 221, 240) 100vh);
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container, .email, .ques1, .ques2, .ques3, .ques4, .ques5 {
+    background-color: rgb(251, 248, 248);
+    width: 700px;
+    padding: 30px;
+    margin-bottom: 35px; 
+}
+
+.container {
+    border-top: 20px solid rgb(98, 61, 140);
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+
+.email {
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+#email {
+    border: none; 
+    border-bottom: 2px solid red; 
+    background-color: rgb(251, 248, 248);
+    width: 250px;
+}
+
+span { 
+    color: red; 
+}
+
+.ques1, .ques2, .ques3, .ques4, .ques5 {
+    border-radius: 5px;
+}
+
+.question1-container, .question2-container, .question3-container, .question4-container, .question5-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+label[for="q1"], label[for="q2"], label[for="q3"], label[for="q4"], label[for="q5"] {
+    font-size: larger;
+}
+
+.submit-button {
+    color: rgb(251, 248, 248);
+    background-color: rgb(98, 61, 140);
+    border-radius: 5px;
+    border: 1px solid rgb(98, 61, 140);
+    height: 30px;
+    width: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: -2px;
+}
+
+.clear-button {
+    color: rgb(98, 61, 140);
+    background-color: rgb(230, 221, 240);
+    border: 1px solid rgb(230, 221, 240);
+    width: max-content;
+    font-size: medium;
+    margin-left: 610px;
+}

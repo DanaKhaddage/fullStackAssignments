@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+            <h1>Sample Quiz - Web Development</h1>
+            <p>Test your knowledge in JavaScript.</p>
+            <p>Test Result<br>
+                You will get 2 points for each correct answer. The result will be displayed at the end of the test. The maximum score is 10 points, with no negative score.</p>
+            <p>Good Luck!</p>    
+    </div>
+    <br><br>
+    <div class="email">
+        <label for="email">Email</label>
+        <label style="color: red;">*</label><br><br>
+        <input type="email" id="email" name="email" placeholder="Your email address"><br><br>
+        <span>&#x26A0;   This is a required question</span>
+    </div>
+    <div class="ques1">
+        <div class="question1-container">
+            <label for="q1">What's the correct way to declare a variable in JavaScript?</label>
+            <span style="color: rgb(187, 184, 184);">2 points</span>
+        </div>
+        <br>
+        <input type="radio" id="ans1" name="q1" value="option1">
+        <label for="ans1">var x = 5;</label><br>
+        <input type="radio" id="ans2" name="q1" value="option2">
+        <label for="ans2">variable x = 5;</label><br>
+        <input type="radio" id="ans3" name="q1" value="option3">
+        <label for="ans3">x = 5;</label><br>
+        <input type="radio" id="ans4" name="q1" value="option4">
+        <label for="ans4">let x = 5;</label>
+    </div>
+    <div class="ques2">
+        <div class="question2-container">
+            <label for="q2">Which of the following isn't a primitive data type in JavaScript?</label>
+            <span style="color: rgb(187, 184, 184);">2 points</span>
+        </div>
+        <br>
+        <input type="radio" id="ans1" name="q2" value="option1">
+        <label for="ans1">Number</label><br>
+        <input type="radio" id="ans2" name="q2" value="option2">
+        <label for="ans2">String</label><br>
+        <input type="radio" id="ans3" name="q2" value="option3">
+        <label for="ans3">Boolean</label><br>
+        <input type="radio" id="ans4" name="q2" value="option4">
+        <label for="ans4">Object</label>
+    </div>
+    <div class="ques3">
+        <div class="question3-container">
+            <label for="q3">What's the output of the following code:</label>
+            <span style="color: rgb(187, 184, 184);">2 points</span>
+        </div>
+        <p style=" font-family: 'Fira Code', 'Courier New', monospace;font-size: 15px;">console.log(2 + "2");</p>
+        <input type="radio" id="ans1" name="q3" value="option1">
+        <label for="ans1">"4"</label><br>
+        <input type="radio" id="ans2" name="q3" value="option2">
+        <label for="ans2">"22"</label><br>
+        <input type="radio" id="ans3" name="q3" value="option3">
+        <label for="ans3">4</label><br>
+        <input type="radio" id="ans4" name="q3" value="option4">
+        <label for="ans4">22</label>
+    </div>
+    <div class="ques4">
+        <div class="question4-container">
+            <label for="q4">Which of the following isn't a comparison operator in JavaScript?</label>
+            <span style="color: rgb(187, 184, 184);">2 points</span>
+        </div>
+        <br>
+        <input type="radio" id="ans1" name="q4" value="option1">
+        <label for="ans1">= =</label><br>
+        <input type="radio" id="ans2" name="q4" value="option2">
+        <label for="ans2">= = =</label><br>
+        <input type="radio" id="ans3" name="q4" value="'option3">
+        <label for="ans3">!=</label><br>
+        <input type="radio" id="ans4" name="q4" value="option4">
+        <label for="ans4">= <</label>
+    </div>
+    <div class="ques5">
+        <div class="question5-container">
+            <label for="q5">What does the "this" keyword refer to in JavaScript?</label>
+            <span style="color: rgb(187, 184, 184);">2 points</span>
+        </div>
+        <br>
+        <input type="radio" id="ans1" name="q5" value="option1">
+        <label for="ans1">The current function</label><br>
+        <input type="radio" id="ans2" name="q5" value="option2">
+        <label for="ans2">The global object</label><br>
+        <input type="radio" id="ans3" name="q5" value="option3">
+        <label for="ans3">The object that the function belongs to</label><br>
+        <input type="radio" id="ans4" name="q5" value="option4">
+        <label for="ans4">The parent object of the current object</label>
+    </div>
+    <div class="submit">
+        <button type="button" class="submit-button" onclick="resultPage()">Submit</button>
+        <button type="button" class="clear-button" onclick="clearAnswers()">Clear form</button>
+    </div>
+ 
+    <script src="./script.js" text="text/JavaScript"></script>  
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-1</title>
+    <style>
+        .create_acc{
+            background-color: rgb(225, 178, 91);
+            color:white;
+            margin-left: 100px;
+            width:800px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .FB{
+            background-color: rgb(40, 40, 86);
+            color: white;
+            margin:20px;
+            padding:3px;
+        }
+        .Twitter{
+            background-color: #37aed6;
+            color: white;
+            margin:20px;
+            padding:3px;
+        }
+        .Google{
+            background-color: rgb(216, 70, 70);
+            color: white;
+            margin:20px;
+            padding:3px;
+        }
+        .Behance{
+            background-color: rgb(16, 146, 190);
+            color: white;
+            margin:20px;
+            padding:3px;
+        }
+        .website_form{
+            background-color: white;
+            width:380px;
+            margin-right: 100px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body style="background-image:url('image.jpg');">
+    <div class="background" style="margin: 40px;display: flex;">
+        <div class="create_acc">
+            <h1 style="margin-left:20px;">Create an Account</h1>
+            <div class="FB" style="border-radius: 5px;">
+                <img src="https://www.freeiconspng.com/thumbs/facebook-logo-png/facebook-transparent-pics-18.png" style="width:30px;height:30px;padding: 10px;">
+                <button onclick="window.open('https://www.facebook.com/login', '_blank')" style="position: relative;top: -17px;display: inline-block;background-color: rgb(40, 40, 86);color: white;border: transparent;">Sign in With Facebook</button> 
+            </div>
+            <div class="Twitter" style="border-radius: 5px;">
+                <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-logo-transparent-square-blue-latest-0.png" style="width:30px;height:30px;padding: 10px;">
+                <button onclick="window.open('https://www.twitter.com/logi', '_blank')" style="position: relative;top: -17px;display: inline-block;background-color: #37aed6;color: white;border: transparent;">Sign in With Twitter</button> 
+            </div>
+            <div class="Google" style="border-radius: 5px;">
+                <img src="https://image.similarpng.com/very-thumbnail/2020/12/Illustration-of-Google-icon-on-transparent-background-PNG.png" style="width:30px;height:30px;padding:10px;">
+                <button onclick="window.open('https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AVQVeyzK2uJHFP0915Rz2wOditru1siH_8FpEvd1aW19QqV8XgHHmF6Vvdw8TqTtT6p761yqgLqbLg&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1040700694%3A1699181718599777&theme=glif', '_blank')" style="position: relative;top: -17px;display: inline-block;background-color:rgb(216, 70, 70);color: white;border: transparent;">Sign in With Google</button> 
+            </div>
+            <div class="Behance" style="border-radius: 5px;">
+                <img src="data:image/png;base64,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" style="width: 30px;height: 30px;padding: 10px;">
+                <button onclick="window.open('https://www.behance.com/login', '_blank')" style="position: relative;top: -17px;display: inline-block;background-color:rgb(16, 146, 190);color: white;border: transparent;">Sign in With Behance</button> 
+            </div>
+        </div>
+        <div class="website_form">
+            <h3 style="color: black;padding-left: 25px;padding-top: 15px;">Modern Website Form</h3>
+            <form>
+                <input type="text" id="username" name="username" placeholder="username" style="border-color: rgb(225, 178, 91);margin-left:25px;width: 315px;height: 50px;margin-top: 7px;padding-left: 10px;margin-right: 30px;"><br><br>
+                <input type="email" id="email" name="email" placeholder="email" style="border-color: rgb(225, 178, 91);margin-left:25px;width: 315px;height: 50px;margin-top: 7px;padding-left: 10px;margin-right: 30px;"><br><br>
+                <input type="password" id="pass" name="pass" placeholder="password" style="border-color: rgb(225, 178, 91);margin-left:25px;width: 315px;height: 50px;margin-top: 7px;padding-left: 10px;margin-right: 30px;"><br><br>
+                <input type="submit" id="submit" name="submit" value="SIGN UP" style="background-color: rgb(61, 174, 61);margin-left:26px;border-color: rgb(61, 174, 61);width: 327px;border-radius: 5px;height: 50px;margin-top: 7px;padding-left: 10px;margin-right: 25px;color: white;">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

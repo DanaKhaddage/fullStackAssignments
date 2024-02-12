@@ -1,0 +1,44 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://img.freepik.com/premium-photo/restaurant-menu-set-food-dishes-black-stone-background-top-view_187166-58905.jpg?w=2000');
+    background-size: cover;
+    background-position: center;
+}
+  
+form {
+    width: 400px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    height: 250px;
+}
+  
+label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; 
+}
+
+input {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 300px; 
+    margin-left: 50px;
+    border-radius: 15px;
+    border-color: rgb(88, 162, 88);
+}
+
+input[type="button"] {
+    background-color: rgb(88, 162, 88);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  

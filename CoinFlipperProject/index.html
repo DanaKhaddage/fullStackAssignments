@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flipper, v2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>MarkH's Coin Flipper</h1>
+    <h3>version 2</h3>
+    <table>
+        <tr>
+            <td class="first-column">Number of<br>coins</td>
+            <td>
+                <input type="text" id="num1" name="num1">
+            </td>
+            <td class="third-column" id="num1Error"></td>
+        </tr>
+        <tr>
+            <td class="first-column">Number of<br>throws:</td>
+            <td>
+                <input type="text" id="num2" name="num2">
+            </td>
+            <td class="third-column" id="num2Error"></td>
+        </tr>
+    </table>
+    <button onclick="PerformCoinFlip()">Go!</button>
+    <h6 id="resultMessage">Nothing to show yet!</h6>
+    <script src="./script.js" type="text/javascript"></script>
+</body>
+</html>
