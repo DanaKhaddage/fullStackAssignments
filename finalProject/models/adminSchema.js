@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const adminSchema = new Schema({
-    adminId: {
-        type: String,
-        unique: true,
-        required: [true, "Admin ID is required."],
-        trim: true,
-    },
     adminName: {
         type: String,
         required: [true, "Admin name is required."],
@@ -37,7 +31,7 @@ const adminSchema = new Schema({
     permissions: [
         {
             type: String,
-            enum: ['create', 'read', 'update', 'delete'], 
+            enum: ['create', 'send', 'update', 'delete', 'respond'], 
         }
     ],
     adminRights: {

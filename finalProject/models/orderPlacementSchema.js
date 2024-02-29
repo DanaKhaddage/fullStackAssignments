@@ -2,13 +2,18 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const orderPlacementSchema = new Schema({
-    orderId: {
-        type: String,
+    orderNumber: {
+        type: Number,
         required: true,
         unique: true,
         trim: true
     },
-    customer_id: {
+    driver: {
+        type: Schema.Types.ObjectId,
+        ref: 'deliveryDriver',
+        required: true,
+    },
+    username: {
         type: Schema.Types.ObjectId,
         ref: 'Customer',
         required: true

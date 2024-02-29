@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    customerId: {
+    username: {
         type: Schema.Types.ObjectId,
         ref: 'Customer',
         required: true
@@ -13,7 +13,7 @@ const reviewSchema = new Schema({
     },
     entityType: {
         type: String,
-        enum: ['product', 'restaurant', 'chef', 'order', 'platform'],
+        enum: ['product', 'restaurant', 'chef', 'order'],
         required: true
     },
     rating: {
@@ -26,6 +26,7 @@ const reviewSchema = new Schema({
         type: String,
         required: true
     },
+    response: {type: String},
 }, { timestamps: true });
 
 module.exports = mongoose.model("Review", reviewSchema);

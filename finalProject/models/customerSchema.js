@@ -2,12 +2,6 @@ const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 
 const customerSchema= new Schema({
-    customerId: {
-        type: String,
-        unique: true,
-        required: [true, "Customer ID is required."],
-        trim: true,
-    },
     firstName: {
         type: String,
         required: [true, "First Name is required."],
@@ -51,6 +45,12 @@ const customerSchema= new Schema({
         trim: true,
         minLength: 6, 
     }, 
+    passwordConfirm: {
+        type: String,
+        trim: true,
+        minLength: 6, 
+    },
+    passwordChangedAt: Date,
     address: {
         type: String,
         required: [true, "Address is required."],
@@ -73,14 +73,48 @@ const customerSchema= new Schema({
             maxLength: 255
         }
     ],
-    orderHistory: [
-        {
-            type: Schema.Types.ObjectId,
+    orderHistory: [{
+        orderId: {
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Order'
-        }
-    ],  
+        },
+        date: {
+            type: Date,
+            default: Date.now
+        },
+    }],
+    notifications: [{
+        type: String,
+    }],
+    cart: [{
+        itemId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'MenuItem'
+        },
+        quantity: {
+            type: Number,
+            default: 1
+        },
+    }],  
   },
   {timestamps: true}
 );
+
+const bcrypt=require("bcrypt");
+customerSchema.pre("save", async function(next) {
+    try {
+        if(!this.isModified("password")) {
+            return next();
+        }
+        this.password=await bcrypt.hash(this.password,12);
+        this.passwordConfirm=undefined;
+    } catch(err) {
+        console.log(err);
+    }
+}),
+
+customerSchema.methods.checkPassword=async function(candidatePassword,customerPassword){
+    return await bcrypt.compare(candidatePassword,customerPassword);
+}
 
 module.exports=mongoose.model("Customer",customerSchema)

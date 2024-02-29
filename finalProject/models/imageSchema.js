@@ -2,13 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const imageSchema = new Schema({
-    image_id: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
-    },
-    item_id: {
+    itemName: {
         type: Schema.Types.ObjectId,
         ref: 'MenuItem',
         required: true

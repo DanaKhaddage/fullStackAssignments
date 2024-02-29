@@ -2,15 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const menuItemSchema = new Schema({
-    item_id: {
-        type: String,
-        unique: true,
-        required: [true, "Item ID is required."],
-        trim: true,
-    },
     itemName: {
         type: String,
         required: [true, "Item name is required."],
+        unique: true,
         trim: true,
         maxLength: 100,
     },
@@ -31,6 +26,7 @@ const menuItemSchema = new Schema({
     },
     ingredients: [{
         type: String,
+        required: [true, "Ingredients are required"],
         trim: true,
         maxLength: 100,
     }],
@@ -40,6 +36,19 @@ const menuItemSchema = new Schema({
         min: 0,
         max: 5,
     },
+    customizationOptions: [{
+        optionName: {
+            type: String,
+            required: true,
+            trim: true,
+            maxLength: 50,
+        },
+        additionalPrice: {
+            type: Number,
+            required: true,
+            min: 0,
+        },
+    }],
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Review',

@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const deliveryDriverSchema = new Schema({
-    driverId: {
-        type: String,
-        unique: true,
-        required: [true, "Driver ID is required."],
-        trim: true,
-    },
     driverName: {
         type: String,
         required: [true, "Driver name is required."],
@@ -42,7 +36,7 @@ const deliveryDriverSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['on-duty', 'off-duty', 'en-route', 'available'],
+        enum: ['declined', 'available'],
         default: 'available'
     },
     documents: {

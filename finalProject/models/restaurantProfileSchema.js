@@ -16,6 +16,7 @@ const restaurantProfileSchema = new Schema({
     },
     phoneNumber: {
         type: String,
+        required: [true, "Restaurant phone number is required."],
         trim: true,
         maxLength: 20,
     },
