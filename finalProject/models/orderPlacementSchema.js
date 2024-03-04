@@ -43,7 +43,7 @@ const orderPlacementSchema = new Schema({
     },
     orderStatus: {
         type: String,
-        enum: ['pending', 'confirmed', 'preparing', 'outForDelivery', 'delivered', 'cancelled'],
+        enum: ['pending', 'confirmed', 'paid', 'outForDelivery', 'delivered', 'cancelled'],
         default: 'pending'
     },
 }, { timestamps: true });
