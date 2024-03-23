@@ -22,6 +22,12 @@ const adminSchema = new Schema({
         trim: true,
         minLength: 6,
     },
+    passwordConfirm: {
+        type: String,
+        trim: true,
+        minLength: 6, 
+    },
+    passwordChangedAt: Date,
     profilePicture: String,
     contactInformation: {
         phone: String,
@@ -42,6 +48,23 @@ const adminSchema = new Schema({
    },
    {timestamps: true}
 );
+
+const bcrypt=require("bcrypt");
+adminSchema.pre("save", async function(next) {
+    try {
+        if(!this.isModified("password")) {
+            return next();
+        }
+        this.password=await bcrypt.hash(this.password,12);
+        this.passwordConfirm=undefined;
+    } catch(err) {
+        console.log(err);
+    }
+}),
+
+adminSchema.methods.checkPassword=async function(candidatePassword,adminPassword){
+    return await bcrypt.compare(candidatePassword,adminPassword);
+}
 
 module.exports = mongoose.model("Admin", adminSchema);
 

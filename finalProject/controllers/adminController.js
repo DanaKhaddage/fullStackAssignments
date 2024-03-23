@@ -4,6 +4,44 @@ const Notification = require('../models/notificationSchema');
 const Restaurant = require('../models/restaurantSchema');
 const Reviews=require('../models/reviewsSchema');
 
+exports.signup= async(req,res) => {
+    try{
+        if(!validator.isEmail(req.body["email"])) {
+            return res.status(400).json({message:"Invalid email address"});
+        }
+        const checkAdminExistence=await Admin.findOne({$or:[{email:req.body["email"]},{adminName:req.body["adminName"]}],});
+        if(checkAdminExistence) {
+            return res.status(409).json({message:"User already exists"});                                                                  
+        }
+        if(req.body["password"]!==req.body["passwordConfirm"]) {
+            return res.status(400).json({message:"Please enter matching password and password confirm"});
+        }
+        const newAdmin=await Admin.create({
+            adminName:req.body["adminName"],
+            email:req.body["email"],
+            address:req.body["address"],
+            password:req.body["password"],
+            passwordConfirm:req.body["passwordConfirm"],
+            passwordChangedAt:Date.now(),
+        });
+        return res.status(201).json({message:"Signup successfully"});
+    } catch(err) {
+        console.log(err);
+    }
+};
+
+exports.login=async(req,res) => {
+    try{
+        const{email,password}=req.body;
+        const Admin=await Admin.findOne({email});
+        if(!Admin || !await Admin.CheckPassword(password, Admin.password)) {
+            return res.status(401).json({message:"Invalid Credentials"});
+        }
+        return res.status(200).json({message:"Logged in successfully"});
+    }catch(err) {
+        console.log(err);
+    }
+};
 exports.addItem=async(req,res) => {
     try{
         const adminTryingToAdd=await Admin.findById(req.params["adminId"]);
