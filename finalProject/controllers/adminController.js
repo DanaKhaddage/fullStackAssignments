@@ -19,7 +19,6 @@ exports.signup= async(req,res) => {
         const newAdmin=await Admin.create({
             adminName:req.body["adminName"],
             email:req.body["email"],
-            address:req.body["address"],
             password:req.body["password"],
             passwordConfirm:req.body["passwordConfirm"],
             passwordChangedAt:Date.now(),
