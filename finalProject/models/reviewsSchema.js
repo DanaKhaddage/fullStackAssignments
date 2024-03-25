@@ -2,18 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    username: {
+    user: {
         type: Schema.Types.ObjectId,
-        ref: 'Customer',
-        required: true
-    },
-    entityId: {
-        type: Schema.Types.ObjectId,
-        required: true
-    },
-    entityType: {
-        type: String,
-        enum: ['product', 'restaurant', 'chef', 'order'],
+        ref: 'User',
         required: true
     },
     rating: {

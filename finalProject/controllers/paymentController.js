@@ -1,17 +1,17 @@
 const Payment = require('../models/paymentSchema');
-const OrderPlacement = require('../models/orderPlacementSchema');
-const Customer = require('../models/customerSchema');
+const Order = require('../models/orderSchema');
+const User = require('../models/userSchema');
 
 exports.processPayment = async (req, res) => {
     try {
-        const { customerId, orderPlacementId } = req.params;
+        const { userID, orderID } = req.params;
         
-        const customer = await Customer.findById(customerId);
-        if (!customer) {
-            return res.status(404).json({ message: 'Customer not found' });
+        const user = await User.findById(userID);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        const order = await OrderPlacement.findById(orderPlacementId);
+        const order = await Order.findById(orderID);
         if (!order) {
             return res.status(404).json({ message: 'Order not found' });
         }
@@ -20,8 +20,8 @@ exports.processPayment = async (req, res) => {
         }
 
         const payment = await Payment.create({
-            username:req.body.username,
-            orderNumber:req.body.orderNumber,
+            user:req.body.user,
+            order:req.body.order,
             paymentMethod:req.body.paymentMethod,
             paymentAmount:req.body.paymentAmount,
             currency:req.body.currency,
@@ -36,6 +36,6 @@ exports.processPayment = async (req, res) => {
         return res.status(201).json({ message: 'Payment processed successfully', payment });
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ message: 'Internal Server Error' });
+        return res.status(500).json(err);
     }
 };

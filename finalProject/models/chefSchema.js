@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const chefSchema = new Schema({
-    name: {
-        type: String,
-        required: [true, "Chef name is required."],
-        trim: true,
-        maxLength: 100,
+    chef:{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
     specialization: {
         type: String,
@@ -28,24 +27,20 @@ const chefSchema = new Schema({
         trim: true,
         maxLength: 100,
     }],
-    phoneNumber: {
-        type: String,
-        trim: true,
-        maxLength: 20,
-    },
-    email: {
-        type: String,
-        trim: true,
-        maxLength: 150,
-        lowercase: true,
-    },
     menuItems: [{
         type: Schema.Types.ObjectId,
         ref: 'MenuItem',
     }],
     daysAvailable: [{
-        type: String,
-        enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        day: {
+            type: String,
+            enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            required: true,
+        },
+        available: {
+            type: Boolean,
+            default: false, // By default, chef is not available on any day
+        }
     }],
 }, { timestamps: true });
 

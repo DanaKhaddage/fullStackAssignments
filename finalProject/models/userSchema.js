@@ -1,7 +1,8 @@
 const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
+const bcrypt=require("bcrypt");
 
-const customerSchema= new Schema({
+const userSchema= new Schema({
     firstName: {
         type: String,
         required: [true, "First Name is required."],
@@ -64,50 +65,46 @@ const customerSchema= new Schema({
     }, 
     profilePicture: {
         type: String,
-        default: "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
+        default: ""
     },
-    savedAddresses: [
+    role: {
+        type:String,
+        default:"user",
+        enum: ["admin","user","deliveryDriver","chef"]
+    },
+    permissions: [
         {
             type: String,
-            trim: true,
-            maxLength: 255
+            enum: ['create', 'send', 'update', 'delete', 'respond'], 
         }
     ],
-    orderHistory: [{
-        orderId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Order'
+    orders: [ 
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Order",
         },
-        date: {
-            type: Date,
-            default: Date.now
-        },
-    }],
+    ],
     notifications: [{
         type: String,
     }],
-    cart: [{
-        itemId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'MenuItem'
-        },
-        quantity: {
-            type: Number,
-            default: 1
-        },
-    }],  
   },
   {timestamps: true}
 );
 
-const bcrypt=require("bcrypt");
-customerSchema.pre("save", async function(next) {
+customerSchema.pre("save", async function(next) { //next is a special middleware
     try {
         if(!this.isModified("password")) {
             return next();
         }
         this.password=await bcrypt.hash(this.password,12);
         this.passwordConfirm=undefined;
+
+        return res.status(201).json({
+            message:"User created successfully",
+            data:{
+                newUser,
+            },
+        });
     } catch(err) {
         console.log(err);
     }
@@ -117,4 +114,15 @@ customerSchema.methods.checkPassword=async function(candidatePassword,customerPa
     return await bcrypt.compare(candidatePassword,customerPassword);
 }
 
-module.exports=mongoose.model("Customer",customerSchema)
+customerSchema.methods.passwordChangedAfterTokenIssued=function(JWTTimestamp){
+    if(this.passwordChangedAt){
+        const passwordChangedTime=parseInt(
+            this.passwordChangedAt.getTime()/1000,
+            10
+        );
+        return passwordChangedTime >JWTTimestamp; 
+    }
+    return false;
+};
+
+module.exports=mongoose.model("User",userSchema)

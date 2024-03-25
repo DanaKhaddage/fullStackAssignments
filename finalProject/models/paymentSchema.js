@@ -2,25 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const paymentSchema = new Schema({
-    username: {
+    user: {
         type: Schema.Types.ObjectId,
-        ref: 'Customer',
+        ref: 'User',
         required: true
     },
-    orderNumber: {
+    order: {
         type: Schema.Types.ObjectId,
-        ref: 'OrderPlacement',
+        ref: 'Order',
         required: true
     },
     paymentMethod: {
         type: String,
         required: true,
         trim: true
-    },
-    paymentAmount: {
-        type: Number,
-        required: true,
-        min: 0
     },
     paymentStatus: {
         type: String,

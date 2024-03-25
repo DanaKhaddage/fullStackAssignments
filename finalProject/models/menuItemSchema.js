@@ -14,11 +14,20 @@ const menuItemSchema = new Schema({
         required: [true, "Price is required."],
         min: 0,
     },
+    itemImage:{
+        type:String,
+        default:""
+    },
     description: {
         type: String,
         required: [true, "Description is required."],
         trim: true,
         maxLength: 255,
+    },
+    itemQuantity: {
+        type: Number,
+        required: [true, "Item quantity is required."],
+        default: 0,
     },
     available: {
         type: Boolean,
@@ -48,11 +57,20 @@ const menuItemSchema = new Schema({
             required: true,
             min: 0,
         },
+        action: {
+            type: String,
+            enum: ['add', 'remove'], 
+            required: true,
+        },
     }],
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Review',
     }],
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'Customer',
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model("MenuItem", menuItemSchema);
