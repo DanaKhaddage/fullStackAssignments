@@ -91,7 +91,7 @@ const userSchema= new Schema({
   {timestamps: true}
 );
 
-customerSchema.pre("save", async function(next) { //next is a special middleware
+userSchema.pre("save", async function(next) { //next is a special middleware
     try {
         if(!this.isModified("password")) {
             return next();
@@ -110,11 +110,11 @@ customerSchema.pre("save", async function(next) { //next is a special middleware
     }
 }),
 
-customerSchema.methods.checkPassword=async function(candidatePassword,customerPassword){
+userSchema.methods.checkPassword=async function(candidatePassword,customerPassword){
     return await bcrypt.compare(candidatePassword,customerPassword);
 }
 
-customerSchema.methods.passwordChangedAfterTokenIssued=function(JWTTimestamp){
+userSchema.methods.passwordChangedAfterTokenIssued=function(JWTTimestamp){
     if(this.passwordChangedAt){
         const passwordChangedTime=parseInt(
             this.passwordChangedAt.getTime()/1000,

@@ -1,6 +1,6 @@
 const User = require("../models/userSchema");
 const validator=require("validator");
-const jwt=require("jwt");
+const jwt=require("jsonwebtoken");
 const {promisify}=require("util"); //returns promise
 
 const signToken=(id)=>{
@@ -39,6 +39,7 @@ exports.signup= async(req,res) => {
             lastName:req.body.lastName,
             username:req.body.username,
             email:req.body.email,
+            phoneNumber:req.body.phoneNumber,
             address:req.body.address,
             password:req.body.password,
             passwordConfirm:req.body.passwordConfirm,
