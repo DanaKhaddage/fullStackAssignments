@@ -117,11 +117,13 @@ userSchema.methods.checkPassword=async function(candidatePassword,customerPasswo
 userSchema.methods.passwordChangedAfterTokenIssued=function(JWTTimestamp){
     if(this.passwordChangedAt){
         const passwordChangedTime=parseInt(
+            //calculates the time (in seconds) when the user's password was last changed based on the passwordChangedAt field.
             this.passwordChangedAt.getTime()/1000,
             10
         );
         return passwordChangedTime >JWTTimestamp; 
     }
+    //the user has not changed their password
     return false;
 };
 

@@ -1,8 +1,10 @@
 const User = require("../models/userSchema");
 const validator=require("validator");
 const jwt=require("jsonwebtoken");
-const {promisify}=require("util"); //returns promise
+const {promisify}=require("util"); //promisify is a function provided by Node.js that converts callback-based APIs into promise-based APIs.
 
+//encapsulates the logic for generating a JWT token with the provided user ID, 
+//using a secret key and an expiration time defined in environment variables.
 const signToken=(id)=>{
     return jwt.sign({id},process.env.JWT_SECRET,{
         expiresIn:process.env.JWT_EXPIRES_IN,
@@ -10,7 +12,7 @@ const signToken=(id)=>{
 };
 
 const createSendToken=(user, statusCode,res)=>{
-    const token=signToken(user._id);
+    const token=signToken(user._id); //the sign token generates a JSON Web Token (JWT) based on this user ID.
     res.status(statusCode).json({
         status:"success",
         token,
@@ -27,7 +29,14 @@ exports.signup= async(req,res) => {
         if(!validator.isMobilePhone(req.body.phoneNumber)) {
             return res.status(400).json({message:"Invalid phone number"});
         }
-        const UserExistence=await User.findOne({$or:[{email:req.body.email},{username:req.body.username}],});
+
+        const UserExistence = await User.findOne({
+            $or: [
+                { email: req.body.email },
+                { username: req.body.username }
+            ]
+        });
+        
         if(UserExistence) {
             return res.status(409).json({message:"User already exists"});                                                                  
         }
@@ -81,9 +90,12 @@ exports.protect=async(req,res,next)=>{
         if(!token){
             return res.status(401).json({message:"You are not logged in"});
         }
+        
         //token verification
         let decoded;
         try{
+            //token:JWT token to be verified
+            //process.env.JWT_SECRET: This is the secret key used to sign the JWT. It's retrieved from an environment variable JWT_SECRET.
             decoded=await promisify(jwt.verify)(token,process.env.JWT_SECRET);
         }catch(error){
             if(error.name==="JsonWebTokenError"){
@@ -98,6 +110,7 @@ exports.protect=async(req,res,next)=>{
             return res.status(401).json({message:"The token owner does not exist"});
         }
         //check if the user changed their password after taking the token
+        //iat: issued at. It represents the time at which the token was issued. 
         if(currentUser.passwordChangedAfterTokenIssued(decoded.iat)){
             return res.status(401).json({message:"Your password has changed! Login again"});
         }
