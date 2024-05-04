@@ -10,7 +10,7 @@ exports.sendNotification = async (req, res) => {
         }
 
         const notification = new Notification({
-            user,
+            User,
             content,
             sentBy: admin._id // Associate the notification with the admin
         });

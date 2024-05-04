@@ -39,7 +39,7 @@ exports.declineOrder = async (req, res) => {
         }
 
         order.orderStatus = 'cancelled';
-        order.driver = driverId;
+        order.driver = deliveryDriverID;
         await order.save();
 
         return res.status(200).json({ message: 'Order declined successfully', order });

@@ -95,7 +95,8 @@ exports.protect=async(req,res,next)=>{
         let decoded;
         try{
             //token:JWT token to be verified
-            //process.env.JWT_SECRET: This is the secret key used to sign the JWT. It's retrieved from an environment variable JWT_SECRET.
+            //process.env.JWT_SECRET: This is the secret key used to sign the JWT. 
+            //It's retrieved from an environment variable JWT_SECRET.
             decoded=await promisify(jwt.verify)(token,process.env.JWT_SECRET);
         }catch(error){
             if(error.name==="JsonWebTokenError"){

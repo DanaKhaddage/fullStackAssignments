@@ -18,7 +18,7 @@ exports.createNewOrder = async (req, res) => {
         }
 
         // Create a new order object
-        const newOrder = new Order({
+        const newOrder = await Order.create({
             orderOwner: cartOwner._id,
             driver: req.body.driver,
             menuItems: cart.products,
@@ -33,7 +33,7 @@ exports.createNewOrder = async (req, res) => {
         await cart.save();
 
         // Send success response
-        return res.status(201).json({ message: "Order created successfully" });
+        return res.status(201).json({ message: "Order created successfully for ${cartOwner.username}" });
     } catch (err) {
         console.error("Error creating order:", err);
         return res.status(500).json({ message: "Internal server error" });
@@ -48,14 +48,19 @@ exports.removeOrder = async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
-        // Find the order based on the provided orderPlacementID
-        const order = await Order.findById(req.params.orderPlacementID);
+        // Find the order based on the provided orderID
+        const order = await Order.findById(req.params.orderID);
         if (!order) {
             return res.status(404).json({ message: "Order not found" });
         }
 
+
         // Remove the order
         await order.remove();
+
+        order.orderStatus="cancelled";
+
+        await order.save();
 
         // Send success response
         return res.status(200).json({ message: "Order removed successfully" });
@@ -72,7 +77,7 @@ exports.trackOrderStatus = async (req, res) => {
             return res.status(404).json({message:"User trying to track the order is not found"});
         }
 
-        const order = await Order.findById(req.params.orderPlacementID);
+        const order = await Order.findById(req.params.orderID);
         if (!order) {
             return res.status(404).json({ message: 'Order not found' });
         }
@@ -100,7 +105,7 @@ exports.updateOrderStatus = async (req, res) => {
         const { newStatus } = req.body;
 
         // Find the order based on the provided order ID
-        const order = await Order.findById(req.params.orderPlacementID);
+        const order = await Order.findById(req.params.orderID);
         if (!order) {
             return res.status(404).json({ message: "Order not found" });
         }
@@ -110,7 +115,7 @@ exports.updateOrderStatus = async (req, res) => {
         await order.save();
 
         // Return a success response with the updated order
-        return res.status(200).json({ message: "Order status updated successfully", order });
+        return res.status(200).json({ message: "Order status updated successfully",data:order });
     } catch(err) {
         console.log(err);
         res.status(500).json({message:err.message});
@@ -123,7 +128,7 @@ exports.viewOrderDetails = async (req, res) => {
         if (!order) {
             return res.status(404).json({ message: 'Order not found' });
         }
-        return res.status(200).json({ order });
+        return res.status(200).json({ data:order });
     } catch(err){
         console.log(err);
         res.status(500).json(err);
